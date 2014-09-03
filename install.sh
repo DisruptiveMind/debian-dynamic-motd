@@ -7,17 +7,17 @@
 PROJECT="debian-dynamic-motd"
 BRANCH="master"
 URL="https://github.com/DisruptiveMind/$PROJECT"
-FOLDER=$PROJECT
+FOLDER=$PROJECT-$BRANCH
 
 # install figlet to enable ASCII art
-sudo apt-get install figlet
+apt-get install -y figlet
 
 # create directory
-rm -rf /etc/update-motd.d/*
-mkdir -f /etc/update-motd.d/
+rm -rf /etc/update-motd.d
+mkdir /etc/update-motd.d
 
 # create the paths
-rm -rf "$BRANCH**"
+rm -rf "$BRANCH**" "$PROJECT**"
 wget "$URL/archive/$BRANCH.zip" ; unzip "$BRANCH.zip"
 
 # copy all files into place
