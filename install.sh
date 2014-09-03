@@ -10,7 +10,7 @@ URL="https://github.com/DisruptiveMind/$PROJECT"
 FOLDER=$PROJECT-$BRANCH
 
 # install figlet to enable ASCII art
-apt-get install -y figlet
+apt-get install -y figlet update-notifier
 
 # create directory
 rm -rf /etc/update-motd.d
@@ -21,7 +21,8 @@ rm -rf "$BRANCH**" "$PROJECT**"
 wget "$URL/archive/$BRANCH.zip" ; unzip "$BRANCH.zip"
 
 # copy all files into place
-cd $FOLDER ; mv motd/* /etc/update-motd.d/
+cd $FOLDER
+mv motd/* /etc/update-motd.d/
 
 # make files executable
 chmod +x /etc/update-motd.d/*
