@@ -4,6 +4,8 @@
 ## Script taken from
 #####
 
+FOLDER="debian-dynamic-motd"
+
 # install figlet to enable ASCII art
 sudo apt-get install figlet
 
@@ -11,7 +13,7 @@ sudo apt-get install figlet
 mkdir /etc/update-motd.d/
 
 # copy all files into place
-mv motd/* /etc/update-motd.d/
+cd $FOLDER ; mv motd/* /etc/update-motd.d/
 
 # make files executable
 chmod +x /etc/update-motd.d/*
